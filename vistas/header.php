@@ -30,7 +30,7 @@ if (strlen(session_id()) < 1)
     <link rel="stylesheet" type="text/css" href="../public/css/bootstrap-select.min.css">
 
   </head>
-  <body class="hold-transition skin-blue sidebar-mini">
+  <body class="hold-transition skin-blue sidebar-collapse sidebar-mini">
     <div class="wrapper">
 
       <header class="main-header">

@@ -43,7 +43,30 @@ Class Venta
 	//Implementar un método para mostrar los datos de un registro a modificar
 	public function mostrar($idventa)
 	{
-		$sql="SELECT v.idventa,DATE(v.fecha_hora) as fecha,v.idcliente,p.nombre as cliente,u.idusuario,u.nombre as usuario,v.tipo_comprobante,v.serie_comprobante,v.num_comprobante,v.total_venta,v.impuesto,v.estado FROM venta v INNER JOIN persona p ON v.idcliente=p.idpersona INNER JOIN usuario u ON v.idusuario=u.idusuario WHERE v.idventa='$idventa'";
+		$sql="SELECT 
+		v.idventa,
+		DATE(v.fecha_hora) AS fecha,
+		v.idcliente,
+		p.nombre AS cliente,
+		u.idusuario,
+		u.nombre AS usuario,
+		v.tipo_comprobante,
+		v.serie_comprobante,
+		CONCAT(
+		  '001-',
+		  REPEAT('0', 6- LENGTH(v.idventa)),
+		  v.idventa
+		) AS num_comprobante,
+		v.total_venta,
+		v.impuesto,
+		v.estado 
+	  FROM
+		venta v 
+		INNER JOIN persona p 
+		  ON v.idcliente = p.idpersona 
+		INNER JOIN usuario u 
+		  ON v.idusuario = u.idusuario 
+	  WHERE v.idventa = '$idventa'";
 		return ejecutarConsultaSimpleFila($sql);
 	}
 
@@ -56,12 +79,63 @@ Class Venta
 	//Implementar un método para listar los registros
 	public function listar()
 	{
-		$sql="SELECT v.idventa,DATE(v.fecha_hora) as fecha,v.idcliente,p.nombre as cliente,u.idusuario,u.nombre as usuario,v.tipo_comprobante,v.serie_comprobante,v.num_comprobante,v.total_venta,v.impuesto,v.estado FROM venta v INNER JOIN persona p ON v.idcliente=p.idpersona INNER JOIN usuario u ON v.idusuario=u.idusuario ORDER by v.idventa desc";
+		$sql="SELECT 
+		v.idventa,
+		DATE(v.fecha_hora) AS fecha,
+		v.idcliente,
+		p.nombre AS cliente,
+		u.idusuario,
+		u.nombre AS usuario,
+		v.tipo_comprobante,
+		v.serie_comprobante,
+		CONCAT(
+		  '001-',
+		  REPEAT('0', 6- LENGTH(v.idventa)),
+		  v.idventa
+		) AS num_comprobante,
+		v.total_venta,
+		v.impuesto,
+		v.estado 
+	  FROM
+		venta v 
+		INNER JOIN persona p 
+		  ON v.idcliente = p.idpersona 
+		INNER JOIN usuario u 
+		  ON v.idusuario = u.idusuario 
+		ORDER BY v.idventa DESC";
+		
 		return ejecutarConsulta($sql);		
 	}
 
 	public function ventacabecera($idventa){
-		$sql="SELECT v.idventa,v.idcliente,p.nombre as cliente,p.direccion,p.tipo_documento,p.num_documento,p.email,p.telefono,v.idusuario,u.nombre as usuario,v.tipo_comprobante,v.serie_comprobante,v.num_comprobante,date(v.fecha_hora) as fecha,v.impuesto,v.total_venta FROM venta v INNER JOIN persona p ON v.idcliente=p.idpersona INNER JOIN usuario u ON v.idusuario=u.idusuario WHERE v.idventa='$idventa'";
+		$sql="SELECT 
+		v.idventa,
+		v.idcliente,
+		p.nombre AS cliente,
+		p.direccion,
+		p.tipo_documento,
+		p.num_documento,
+		p.email,
+		p.telefono,
+		v.idusuario,
+		u.nombre AS usuario,
+		v.tipo_comprobante,
+		v.serie_comprobante,
+		CONCAT(
+		  '001-',
+		  REPEAT('0', 6- LENGTH(v.idventa)),
+		  v.idventa
+		) AS num_comprobante,
+		DATE(v.fecha_hora) AS fecha,
+		v.impuesto,
+		v.total_venta 
+	  FROM
+		venta v 
+		INNER JOIN persona p 
+		  ON v.idcliente = p.idpersona 
+		INNER JOIN usuario u 
+		  ON v.idusuario = u.idusuario 
+	  WHERE v.idventa = '$idventa'";
 		return ejecutarConsulta($sql);
 	}
 

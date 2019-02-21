@@ -99,7 +99,7 @@ switch ($_GET["op"]){
  				"2"=>$reg->cliente,
  				"3"=>$reg->usuario,
  				"4"=>$reg->tipo_comprobante,
- 				"5"=>$reg->serie_comprobante.'-'.$reg->num_comprobante,
+ 				"5"=>$reg->num_comprobante,
  				"6"=>$reg->total_venta,
  				"7"=>($reg->estado=='Aceptado')?'<span class="label bg-green">Aceptado</span>':
  				'<span class="label bg-red">Anulado</span>'
@@ -142,7 +142,7 @@ switch ($_GET["op"]){
  				"3"=>$reg->codigo,
  				"4"=>$reg->stock,
  				"5"=>$reg->precio_venta,
- 				"6"=>"<img src='../files/articulos/".$reg->imagen."' height='50px' width='50px' >"
+ 				"6"=>($reg->imagen!='')?"<img src='../files/articulos/".$reg->imagen."' height='50px' width='50px' >":"<img src='../files/articulos/anonymous.png' height='50px' width='50px' >"
  				);
  		}
  		$results = array(

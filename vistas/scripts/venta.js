@@ -39,7 +39,7 @@ function limpiar()
     $('#fecha_hora').val(today);
 
     //Marcamos el primer tipo_documento
-    $("#tipo_comprobante").val("Boleta");
+  $("#tipo_comprobante").val("Ticket");
 	$("#tipo_comprobante").selectpicker('refresh');
 }
 
@@ -111,7 +111,7 @@ function listar()
         },
 		"bDestroy": true,
 		"iDisplayLength": 5,//Paginación
-	    "order": [[ 0, "desc" ]]//Ordenar (columna,orden)
+	    "order": [[ 5, "desc" ]]//Ordenar (columna,orden)
 	}).DataTable();
 }
 

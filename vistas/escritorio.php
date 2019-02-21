@@ -15,9 +15,9 @@ if ($_SESSION['escritorio']==1)
 {
   require_once "../modelos/Consultas.php";
   $consulta = new Consultas();
-  $rsptac = $consulta->totalcomprahoy();
+  $rsptac = $consulta->totalventames();
   $regc=$rsptac->fetch_object();
-  $totalc=$regc->total_compra;
+  $totalm=$regc->total_mes;
 
   $rsptav = $consulta->totalventahoy();
   $regv=$rsptav->fetch_object();
@@ -70,14 +70,14 @@ if ($_SESSION['escritorio']==1)
                           <div class="small-box bg-aqua">
                               <div class="inner">
                                 <h4 style="font-size:17px;">
-                                  <strong>S/ <?php echo $totalc; ?></strong>
+                                  <strong>S/ <?php echo $totalm; ?></strong>
                                 </h4>
-                                <p>Compras</p>
+                                <p>Ventas</p>
                               </div>
                               <div class="icon">
                                 <i class="ion ion-bag"></i>
                               </div>
-                              <a href="ingreso.php" class="small-box-footer">Compras <i class="fa fa-arrow-circle-right"></i></a>
+                              <a href="venta.php" class="small-box-footer">Ventas Del Mes <i class="fa fa-arrow-circle-right"></i></a>
                             </div>
                         </div>
                         <div class="col-lg-6 col-md-6 col-sm-6 col-xs-6">
@@ -91,7 +91,7 @@ if ($_SESSION['escritorio']==1)
                               <div class="icon">
                                 <i class="ion ion-bag"></i>
                               </div>
-                              <a href="venta.php" class="small-box-footer">Ventas <i class="fa fa-arrow-circle-right"></i></a>
+                              <a href="venta.php" class="small-box-footer">Ventas del Dia <i class="fa fa-arrow-circle-right"></i></a>
                             </div>
                         </div>
                     </div>
@@ -186,7 +186,7 @@ var compras = new Chart(ctx, {
 
 var ctx = document.getElementById("ventas").getContext('2d');
 var ventas = new Chart(ctx, {
-    type: 'bar',
+    type: 'line',
     data: {
         labels: [<?php echo $fechasv; ?>],
         datasets: [{

@@ -31,11 +31,11 @@ $rspta = $venta->ventacabecera($_GET["id"]);
 $reg = $rspta->fetch_object();
 
 //Establecemos los datos de la empresa
-$empresa = "Soluciones Innovadoras Perú S.A.C.";
-$documento = "20477157772";
-$direccion = "Chongoyape, José Gálvez 1368";
-$telefono = "931742904";
-$email = "jcarlos.ad7@gmail.com";
+$empresa = "EA CAPRICHOS";
+$documento = "LA OROYA - 2019";
+$direccion = "C.C LAS MERCEDES - MARCAVALLE";
+$telefono = "965317356";
+$email = "caprichosea@gmail.com";
 
 ?>
 <div class="zona_impresion">
@@ -64,7 +64,7 @@ $email = "jcarlos.ad7@gmail.com";
         <td><?php echo $reg->tipo_documento.": ".$reg->num_documento; ?></td>
     </tr>
     <tr>
-        <td>Nº de venta: <?php echo $reg->serie_comprobante." - ".$reg->num_comprobante ; ?></td>
+        <td>Nº de venta: <?php echo $reg->num_comprobante ; ?></td>
     </tr>    
 </table>
 <br>
@@ -106,10 +106,13 @@ $email = "jcarlos.ad7@gmail.com";
       <td colspan="3" align="center">¡Gracias por su compra!</td>
     </tr>
     <tr>
-      <td colspan="3" align="center">IncanatoIT</td>
+      <td colspan="3" align="center">EACAPRICHOS</td>
     </tr>
     <tr>
-      <td colspan="3" align="center">Chiclayo - Perú</td>
+      <td colspan="3" align="center">Regrese Pronto</td>
+    </tr>
+    <tr>
+      <td colspan="3" align="center">**Reclame su Boleta**</td>
     </tr>
     
 </table>

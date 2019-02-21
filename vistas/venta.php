@@ -57,38 +57,38 @@ if ($_SESSION['ventas']==1)
                     </div>
                     <div class="panel-body" style="height: 400px;" id="formularioregistros">
                         <form name="formulario" id="formulario" method="POST">
-                          <div class="form-group col-lg-8 col-md-8 col-sm-8 col-xs-12">
+                          <div class="form-group col-lg-3 col-md-8 col-sm-8 col-xs-12">
                             <label>Cliente(*):</label>
                             <input type="hidden" name="idventa" id="idventa">
                             <select id="idcliente" name="idcliente" class="form-control selectpicker" data-live-search="true" required>
                               
                             </select>
                           </div>
-                          <div class="form-group col-lg-4 col-md-4 col-sm-4 col-xs-12">
-                            <label>Fecha(*):</label>
-                            <input type="date" class="form-control" name="fecha_hora" id="fecha_hora" required="">
+                          <div class="form-group col-lg-2 col-md-6 col-sm-6 col-xs-12">
+                            <label>Comprobante:</label>
+                            <input type="text" class="form-control" name="num_comprobante" id="num_comprobante" maxlength="20" readonly>
                           </div>
-                          <div class="form-group col-lg-6 col-md-6 col-sm-6 col-xs-12">
+
+                          <div class="form-group col-lg-3 col-md-4 col-sm-4 col-xs-12">
+                            <label>Fecha(*):</label>
+                            <input type="date" class="form-control" name="fecha_hora" id="fecha_hora" required="" value="<?php echo date("Y-m-d"); ?>">
+                          </div>
+                          <div class="form-group col-lg-2 col-md-6 col-sm-6 col-xs-12">
                             <label>Tipo Comprobante(*):</label>
                             <select name="tipo_comprobante" id="tipo_comprobante" class="form-control selectpicker" required="">
+                                <option value="Ticket">Ticket</option>
                                <option value="Boleta">Boleta</option>
                                <option value="Factura">Factura</option>
-                               <option value="Ticket">Ticket</option>
+                               
                             </select>
                           </div>
-                          <div class="form-group col-lg-2 col-md-2 col-sm-6 col-xs-12">
-                            <label>Serie:</label>
-                            <input type="text" class="form-control" name="serie_comprobante" id="serie_comprobante" maxlength="7" placeholder="Serie">
-                          </div>
-                          <div class="form-group col-lg-2 col-md-2 col-sm-6 col-xs-12">
-                            <label>Número:</label>
-                            <input type="text" class="form-control" name="num_comprobante" id="num_comprobante" maxlength="10" placeholder="Número" required="">
-                          </div>
+
                           <div class="form-group col-lg-2 col-md-2 col-sm-6 col-xs-12">
                             <label>Impuesto:</label>
-                            <input type="text" class="form-control" name="impuesto" id="impuesto" required="">
+                            <input type="text" class="form-control" name="impuesto" id="impuesto">
                           </div>
-                          <div class="form-group col-lg-3 col-md-3 col-sm-6 col-xs-12">
+                          <div class="form-group col-lg-2 col-md-3 col-sm-6 col-xs-12">
+                           
                             <a data-toggle="modal" href="#myModal">           
                               <button id="btnAgregarArt" type="button" class="btn btn-primary"> <span class="fa fa-plus"></span> Agregar Artículos</button>
                             </a>
